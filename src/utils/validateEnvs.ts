@@ -1,4 +1,4 @@
-function addValidation(key: string, errMsg: string = "") {
+function valitadeEnv(key: string, errMsg: string = "") {
   const value = process.env[key]
   return {
     key: key,
@@ -27,9 +27,9 @@ function validateAllEnvs(listOfEnvs: Array<Object>) {
 
 export function validateEnv() {
   const listOfEnvs = [
-    addValidation('BOT_TOKEN'),
-    addValidation('DB_USER'),
-    addValidation('DB_PASSWORD')
+    valitadeEnv('BOT_TOKEN'),
+    valitadeEnv('DB_USER'),
+    valitadeEnv('DB_PASSWORD')
   ]
 
   const err_count = validateAllEnvs(listOfEnvs)

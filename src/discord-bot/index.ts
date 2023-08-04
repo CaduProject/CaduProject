@@ -2,9 +2,11 @@ import { Client } from "discord.js";
 
 import { connectDatabase } from "../databse/database"
 import { IntentOptions } from "../configs/IntentOptions"
+import { validateEnv } from "../utils/validateEnvs"
 import { ENV } from "../configs/Envs"
 
 (async () => {
+  if (validateEnv()) return;
   const BOT = new Client({intents: IntentOptions});
 
   await connectDatabase()

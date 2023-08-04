@@ -5,7 +5,7 @@
   "main": "./prod/discord-bot/index.js",
   "scripts": {
     "build": "tsc",
-    "start": "node -r dotenv/config ./prod/discord-bot/index.js"
+    "start": "tsc && node -r dotenv/config ./prod/discord-bot/index.js"
   },
   "author": "",
   "license": "ISC",

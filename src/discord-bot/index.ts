@@ -1,15 +1,30 @@
-import { Client } from "discord.js";
-
-import { connectDatabase } from "../databse/database"
-import { IntentOptions } from "../configs/IntentOptions"
-import { validateEnv } from "../utils/validateEnvs"
+import { MakeBotClient, MakeBotPlayer } from "../utils/makeapp"
 import { ENV } from "../configs/Envs"
+
+import { validateEnv } from "../utils/validateEnvs"
+import { Commands } from "../commands/commands"
+import { Message } from "discord.js";
+
+function RunCommand(prefix: string, message: Message) {
+  console.log(`Message from ${message.author.username}: ${message.content}`);
+  const args = message.content.replace(prefix, "")
+  const argsList = args.split(" ")
+  Commands(argsList, message)
+}
 
 (async () => {
   if (validateEnv()) return;
-  const BOT = new Client({intents: IntentOptions});
 
-  await connectDatabase()
-  await BOT.login(ENV.BOT_TOKEN);
-  BOT.on("ready", () => console.log("Connected to Discord!"));
+  var prefix = ENV.BOT_PREFIX
+  var client = MakeBotClient()
+  var player = MakeBotPlayer(client)
+
+  client.on("messageCreate", (message) => {
+    if (message.author.bot) return; 
+
+    if(message.content.startsWith(prefix)) {
+      RunCommand(prefix, message)
+    }
+  })
+
 })();

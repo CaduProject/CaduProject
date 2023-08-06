@@ -1,3 +1,12 @@
-import { IntentsString } from "discord.js"
+import { IntentsBitField } from "discord.js"
 
-export const IntentOptions: IntentsString[] = ["GUILDS"];
+export const IntentOptions = {
+    intents: [
+        IntentsBitField.Flags.Guilds,
+        IntentsBitField.Flags.GuildMessages,
+        IntentsBitField.Flags.GuildMembers,
+        IntentsBitField.Flags.GuildVoiceStates,
+        IntentsBitField.Flags.MessageContent
+    ],
+    disableMentions: 'everyone'
+}

@@ -29,7 +29,8 @@ export function validateEnv() {
   const listOfEnvs = [
     valitadeEnv('BOT_TOKEN'),
     valitadeEnv('DB_USER'),
-    valitadeEnv('DB_PASSWORD')
+    valitadeEnv('DB_PASSWORD'),
+    valitadeEnv('BOT_PREFIX'),
   ]
 
   const err_count = validateAllEnvs(listOfEnvs)

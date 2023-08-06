@@ -2,8 +2,7 @@ import { connect, set } from "mongoose";
 
 import { ENV } from "../configs/Envs"
 
-export const connectDatabase = async () => {
+export const connectDatabase = () => {
     set('strictQuery', true);
-    await connect(ENV.MONGO_URI);
-    console.log("Database Connected!")
+    connect(ENV.MONGO_URI);
 }

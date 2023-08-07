@@ -10,10 +10,7 @@ const commandsList: Array<Command> = [
 ]
 import { CaduClient } from "../discord-bot"
 
-export function Commands(args: Array<string>, message: Message, caduClient: CaduClient) {
-    const arg = args[0]
-    const command = findCommand(arg, commandsList)
-
-    args.shift()
+export function Commands([cmd, ...args]: Array<string>, message: Message, caduClient: CaduClient) {
+    const command = findCommand(cmd, commandsList)
     command.caller(args, message, caduClient)
 }

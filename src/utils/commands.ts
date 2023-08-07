@@ -23,6 +23,5 @@ export function addCommand(arg: string, caller: Function){
 }
 
 export function findCommand(arg: string, commandsList: Array<Command>): Command {
-    const commandIndex = commandsList.findIndex(command => command.arg === arg)
-    return commandsList[commandIndex]
+    return commandsList.find(command => command.arg === arg) as Command
 }

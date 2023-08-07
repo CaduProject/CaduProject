@@ -1,17 +1,17 @@
 import { Message } from 'discord.js'
 import { logFunction } from '../../utils/logger'
 import { CaduClient } from '../../discord-bot/index'
+import { isConnectedToChat } from '../../utils/chat'
 
 export async function play(
   args: Array<string>,
   message: Message,
-  {player}: CaduClient
+  { player }: CaduClient
 ) {
   logFunction('Play', args)
 
-  const channel = message.member?.voice.channel
-  if (!channel)
-    return message.channel.send(`Você não está conectado a nenhum canal!`)
+  if (!isConnectedToChat(message)) return
+  const channel = message.member?.voice.channel!
 
   try {
     const { track } = await player.play(channel, args.join(' '))

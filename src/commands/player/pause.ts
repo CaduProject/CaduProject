@@ -1,6 +1,7 @@
 import { Message } from 'discord.js'
 import { logFunction } from '../../utils/logger'
 import { useQueue } from 'discord-player'
+import { isConnectedToChat } from '../../utils/chat'
 
 export async function pause(
   args: Array<string>,
@@ -8,9 +9,7 @@ export async function pause(
 ) {
   logFunction('Pause', args)
 
-  const channel = message.member?.voice.channel
-  if (!channel)
-    return message.channel.send(`Você não está conectado a nenhum canal!`)
+  if (!isConnectedToChat(message)) return
 
   try {
     const queue = useQueue(message.guild!.id);

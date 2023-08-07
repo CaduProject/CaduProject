@@ -5,7 +5,7 @@ import { CaduClient } from '../../discord-bot/index'
 export async function Play(
   args: Array<string>,
   message: Message,
-  caduClient: CaduClient
+  {player}: CaduClient
 ) {
   logFunction('Play', args)
 
@@ -13,12 +13,8 @@ export async function Play(
   if (!channel)
     return message.channel.send(`Você não está conectado a nenhum canal!`)
 
-  const guild = message.guild
-  const player = caduClient.player
-  message.channel.send(`TO DO IMPLEMENTAR PLAY DO PLAYER`)
-
   try {
-    const { track } = await player.play(message.channel.id, args.join(' '))
+    const { track } = await player.play(channel, args.join(' '))
     console.log(`🎉 I am playing ${track.title} 🎉`)
   } catch (e) {
     console.log(`😭 Failed to play error oh no:\n\n${e}`)

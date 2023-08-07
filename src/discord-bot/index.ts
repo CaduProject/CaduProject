@@ -4,7 +4,7 @@ import { Player } from "discord-player"
 import { ENV } from "../configs/Envs"
 
 import { validateEnv } from "../utils/validateEnvs"
-import { Commands } from "../commands/commands"
+import { Commands } from "./commands"
 import { Message } from "discord.js";
 
 function RunCommand(prefix: string, message: Message, caduClient: CaduClient) {
@@ -42,8 +42,12 @@ function createClient(): CaduClient{
   discordClient.on("messageCreate", (message) => {
     if (message.author.bot) return; 
 
-    if(message.content.startsWith(prefix)) {
-      RunCommand(prefix, message, caduClient)
+    if(message.content.trim().startsWith(prefix)) {
+      try {
+        RunCommand(prefix, message, caduClient)
+      } catch (e) {
+        message.channel.send(`Comando não encontrado`);
+      }
     }
   })
 

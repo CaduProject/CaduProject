@@ -1,7 +1,7 @@
 import { Message, EmbedBuilder } from "discord.js";
 import { capitalizeStr } from "../../utils/ui/display"
 
-export function UserInfo(args: Array<String>, message: Message) {
+export function userInfo(args: Array<String>, message: Message) {
     const user = message.mentions.users.first() || message.author
     const avatar = user.avatarURL({ forceStatic: true, extension: "png", size: 1024 });
 

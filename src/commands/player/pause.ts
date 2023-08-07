@@ -1,22 +1,22 @@
 import { Message } from 'discord.js'
 import { logFunction } from '../../utils/logger'
 import { CaduClient } from '../../discord-bot/index'
+import { useQueue } from 'discord-player'
 
-export async function play(
+export async function pause(
   args: Array<string>,
   message: Message,
-  {player}: CaduClient
 ) {
-  logFunction('Play', args)
+  logFunction('Pause', args)
 
   const channel = message.member?.voice.channel
   if (!channel)
     return message.channel.send(`Você não está conectado a nenhum canal!`)
 
   try {
-    const { track } = await player.play(channel, args.join(' '))
-    console.log(`🎉 I am playing ${track.title} 🎉`)
+    const queue = useQueue(message.guild!.id);
+    queue!.node.pause();
   } catch (e) {
-    console.log(`😭 Failed to play error oh no:\n\n${e}`)
+    console.log(`😭 Failed to pause:\n\n${e}`)
   }
 }

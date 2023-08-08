@@ -3,6 +3,7 @@ import { addCommand, Command } from "../utils/commands"
 import { skip } from "./player/skip"
 import { pause } from "./player/pause"
 import { resume } from "./player/resume"
+import { stop } from "./player/stop"
 
 export const playerCommandsList: Array<Command[]> = [
     addCommand(["play", "p"], play),

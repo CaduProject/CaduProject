@@ -1,7 +1,7 @@
 import { Message } from 'discord.js'
-import { logFunction } from '../../utils/logger'
 import { useQueue } from 'discord-player'
-import { isConnectedToChat } from '../../utils/chat'
+import { logFunction } from '../../../utils/logger';
+import { isConnectedToChat } from '../../../utils/chat';
 
 export async function pause(
   args: Array<string>,

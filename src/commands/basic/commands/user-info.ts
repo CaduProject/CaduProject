@@ -1,5 +1,5 @@
 import { Message, EmbedBuilder } from "discord.js";
-import { capitalizeStr } from "../../utils/ui/display"
+import { capitalizeStr } from "../../../utils/ui/display";
 
 export function userInfo(args: Array<String>, message: Message) {
     const user = message.mentions.users.first() || message.author

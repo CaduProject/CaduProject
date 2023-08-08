@@ -1,8 +1,8 @@
 import { Message } from 'discord.js'
-import { logFunction } from '../../utils/logger'
-import { CaduClient } from '../../discord-bot/index'
-import { isConnectedToChat } from '../../utils/chat'
-import { embedTrackMessage } from '../../utils/message'
+import { CaduClient } from '../../../discord-bot'
+import { logFunction } from '../../../utils/logger'
+import { isConnectedToChat } from '../../../utils/chat'
+import { embedTrackMessage } from '../../../utils/message'
 
 export async function play(
   args: Array<string>,

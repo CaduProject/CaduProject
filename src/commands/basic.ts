@@ -1,6 +1,6 @@
-import { ping } from "./basic/ping"
-import { userInfo } from "./basic/user-info"
+import { userInfo } from "os"
 import { addCommand, Command } from "../utils/commands"
+import { ping } from "./basic/commands/ping"
 
 export const basicCommandsList: Array<Command[]> = [
     addCommand(["ping"], ping),

@@ -1,7 +1,7 @@
 import { Message } from 'discord.js'
-import { logFunction } from '../../utils/logger'
 import { useQueue } from 'discord-player'
-import { isConnectedToChat } from '../../utils/chat'
+import { logFunction } from '../../../utils/logger'
+import { isConnectedToChat } from '../../../utils/chat'
 
 export async function skip(args: Array<string>, message: Message) {
   logFunction('Skip', args)

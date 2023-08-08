@@ -9,5 +9,5 @@ export const playerCommandsList: Array<Command[]> = [
     addCommand(["skip"], skip),
     addCommand(["pause"], pause),
     addCommand(["resume"], resume),
-    addCommand(["stop"], resume)
+    addCommand(["stop"], stop)
 ]

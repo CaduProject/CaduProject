@@ -16,9 +16,7 @@ export async function play(
 
   try {
     const { track } = await player.play(channel, args.join(' '))
-    const text = `🎵 Estou tocando: ${track.title} 🎵`
-
-    embedTrackMessage(message, 'purple', text, track)
+    embedTrackMessage(message, 'purple', track)
   } catch (e) {
     console.log(`😭 Failed to play error oh no:\n\n${e}`)
   }

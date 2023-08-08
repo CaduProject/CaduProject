@@ -22,29 +22,25 @@ function addField(name: string, value: string, inline: boolean = false): APIEmbe
 export function embedTrackMessage(
   message: Message,
   color: colorPalette,
-  text: string,
-  { ...props }: Track
+  { ...track }: Track
 ) {
-  const source = props.queryType as string
+  const source = track.queryType as string
   const fields = [
-    addField("Cantor:", props.author),
-    addField("Música:", props.title),
+    addField("Cantor:", track.author),
+    addField("Música:", track.title),
     addField("Fonte:", source)
   ]
 
   try {
     const embed = new EmbedBuilder()
     .setColor(new Colors()[color])
-    .setTitle(text)
-    .setURL(props.url)
-    .setAuthor({
-      name: props.author,
-    })
-    .setThumbnail(props.thumbnail)
+    .setTitle(`🎵 Estou tocando: ${track.title} 🎵`)
+    .setURL(track.url)
+    .setThumbnail(track.thumbnail)
     .setFields(fields)
     .setTimestamp()
     .setFooter({
-      text: `⏳ Duração: ${props.duration} ⏳`,
+      text: `⏳ Duração: ${track.duration} ⏳`,
     })
 
   message.channel.send({ embeds: [embed] })

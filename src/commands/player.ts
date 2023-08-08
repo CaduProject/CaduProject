@@ -5,9 +5,9 @@ import { pause } from "./player/pause"
 import { resume } from "./player/resume"
 
 
-export const playerCommandsList: Array<Command> = [
-    addCommand("play", play),
-    addCommand("skip", skip),
-    addCommand("pause", pause),
-    addCommand("resume", resume)
+export const playerCommandsList: Array<Command[]> = [
+    addCommand(["play", "p"], play),
+    addCommand(["skip"], skip),
+    addCommand(["pause"], pause),
+    addCommand(["resume"], resume)
 ]

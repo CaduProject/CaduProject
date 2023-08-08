@@ -18,8 +18,8 @@ export class Command {
     }
 }
 
-export function addCommand(arg: string, caller: Function){
-    return new Command(arg, caller)
+export function addCommand(args: Array<string>, caller: Function) {
+    return args.map((arg) => new Command(arg, caller))
 }
 
 export function findCommand(arg: string, commandsList: Array<Command>): Command {

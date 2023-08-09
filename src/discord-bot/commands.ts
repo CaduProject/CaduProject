@@ -1,7 +1,7 @@
 import { Message } from "discord.js"
 
-import { basicCommandsList } from "../commands/basic"
-import { playerCommandsList } from "../commands/player"
+import { basicCommandsList } from "../commands/basic/basic"
+import { playerCommandsList } from "../commands/player/player"
 import { findCommand, Command } from "../utils/commands"
 
 const commandsList: Array<Command[]> = [

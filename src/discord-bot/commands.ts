@@ -1,14 +1,17 @@
 import { Message } from "discord.js"
 
+import { CaduClient } from "."
 import { basicCommandsList } from "../commands/basic/basic"
 import { playerCommandsList } from "../commands/player/player"
+import { karutaCommandList } from "../commands/karuta/karuta"
 import { findCommand, Command } from "../utils/commands"
 
 const commandsList: Array<Command[]> = [
     ...basicCommandsList,
-    ...playerCommandsList
+    ...playerCommandsList,
+    ...karutaCommandList
 ]
-import { CaduClient } from "."
+
 
 export function Commands([cmd, ...args]: Array<string>, message: Message, caduClient: CaduClient) {
     const command = findCommand(cmd, commandsList.flat())

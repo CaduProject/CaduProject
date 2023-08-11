@@ -5,7 +5,7 @@ import { YouTubeExtractor, SpotifyExtractor, SoundCloudExtractor, AppleMusicExtr
 import { validateEnv } from "../utils/validateEnvs"
 import { connectDatabase } from "../databse/database"
 import { IntentOptions } from "../configs/IntentOptions"
-import { ENV } from "../configs/Envs"
+import { ENV } from "../configs/envs"
 
 export function MakeBotPlayer(client: any): Player {
   const player = new Player(client);

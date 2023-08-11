@@ -1,7 +1,7 @@
 import { MakeBotClient, MakeBotPlayer } from "../utils/makeapp"
 import { Client } from "discord.js";
 import { Player } from "discord-player"
-import { ENV } from "../configs/Envs"
+import { ENV } from "../configs/envs"
 
 import { validateEnv } from "../utils/validateEnvs"
 import { Commands } from "./commands"

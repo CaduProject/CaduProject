@@ -14,6 +14,7 @@ export async function pause(
   try {
     const queue = useQueue(message.guild!.id);
     queue!.node.pause();
+    message.reply({ content: `⏸️ | I am **pausing** the current track` })
   } catch (e) {
     console.log(`😭 Failed to pause:\n\n${e}`)
   }

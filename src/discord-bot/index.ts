@@ -52,10 +52,10 @@ function createClient(): CaduClient{
   })
 })();
 
-process.on("uncaughtException", () => {
-  console.log("[uncaughtException] => FATAL ERROR")
+process.on("uncaughtException", (reason: Error) => {
+  console.log(`[uncaughtException] => FATAL ERROR\nReason: ${reason}`)
 })
 
-process.on("unhandledRejection", () =>  {
-  console.log("[unhandledRejection] => FATAL ERROR")
+process.on("unhandledRejection", (reason: Error) =>  {
+  console.log(`[unhandledRejection] => FATAL ERROR\nReason: ${reason}`)
 })

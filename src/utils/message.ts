@@ -10,11 +10,31 @@ function truncateText(text: string){
   return text.length > 50 ? truncate += '...' : truncate
 }
 
-function addField(name: string, value: string, inline: boolean = false): APIEmbedField{
+export function addField(name: string, value: string, inline: boolean = false): APIEmbedField{
   return {
     name: name,
     value: truncateText(value),
     inline
+  }
+}
+
+export function embedText(
+  title: string,
+  message: Message,
+  color: colorPalette,
+  msg: string
+) {
+
+  try {
+    const embed = new EmbedBuilder()
+    .setColor(new Colors()[color])
+    .setTitle(title)
+    .setDescription(msg)
+    .setTimestamp()
+
+  message.channel.send({ embeds: [embed] })
+  } catch(ex) {
+    log(ex)
   }
 }
 

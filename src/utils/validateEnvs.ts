@@ -31,6 +31,7 @@ export function validateEnv() {
     valitadeEnv('DB_USER'),
     valitadeEnv('DB_PASSWORD'),
     valitadeEnv('BOT_PREFIX'),
+    valitadeEnv('CADU_API_URL'),
   ]
 
   const err_count = validateAllEnvs(listOfEnvs)

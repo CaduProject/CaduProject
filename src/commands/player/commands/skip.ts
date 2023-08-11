@@ -11,6 +11,7 @@ export async function skip(args: Array<string>, message: Message) {
   try {
     const queue = useQueue(message.guild!.id)
     queue!.node.skip()
+    message.reply({ content: `⏩ | I am **skipping** the current track` })
   } catch (e) {
     console.log(`😭 Failed to skip:\n\n${e}`)
   }

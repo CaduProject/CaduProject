@@ -11,6 +11,7 @@ export async function resume(args: Array<string>, message: Message) {
   try {
     const queue = useQueue(message.guild!.id)
     queue!.node.resume()
+    message.reply({ content: `▶️ | I am **resuming** the current track` })
   } catch (e) {
     console.log(`😭 Failed to play error oh no:\n\n${e}`)
   }

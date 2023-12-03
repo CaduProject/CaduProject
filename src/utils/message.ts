@@ -22,6 +22,27 @@ function addField(
   }
 }
 
+export function embedText(
+  title: string,
+  message: Message,
+  color: colorPalette,
+  msg: string
+) {
+
+  try {
+    const embed = new EmbedBuilder()
+    .setColor(new Colors()[color])
+    .setTitle(title)
+    .setDescription(msg)
+    .setTimestamp()
+
+  message.channel.send({ embeds: [embed] })
+  } catch(ex) {
+    log(ex)
+  }
+}
+
+
 export function embedTrackMessage(message: Message, color: colorPalette, track: Track) {
   const source = track.queryType as string
   const fields = [

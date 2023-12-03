@@ -3,6 +3,9 @@ import { useQueue } from 'discord-player'
 import { logFunction } from '../../../utils/logger'
 import { isConnectedToChat } from '../../../utils/chat'
 
+export const StopCommands = ['Stop', 'stop', 'Parar', 'parar']
+
+
 export async function stop(args: Array<string>, message: Message) {
   logFunction('Stop', args)
 

@@ -5,6 +5,8 @@ import { Track } from 'discord-player'
 
 const { ActionRowBuilder, ButtonBuilder } = require('discord.js')
 
+export const PlayerCommands = ['Player', 'player', 'pm', 'Music', 'music', 'Musica', 'Music']
+
 export type playerActions = 'previous' | 'pause' | 'resume' | 'skip'
 export const playerActionsList: Array<playerActions | string> = [
   'previous',

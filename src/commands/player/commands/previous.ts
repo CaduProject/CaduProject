@@ -3,6 +3,8 @@ import { logFunction } from '../../../utils/logger'
 import { isConnectedToChat } from '../../../utils/chat'
 import { useHistory } from 'discord-player'
 
+export const PreviousCommands = ['Previous', 'previous', 'Back', 'back', 'Voltar', 'volta', 'Anterior', 'anterior']
+
 export async function previous(args: Array<string>, message: Message) {
   logFunction('Previous', args)
 

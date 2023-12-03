@@ -5,6 +5,8 @@ import { isConnectedToChat } from '../../../utils/chat'
 import { embedTrackMessage } from '../../../utils/message'
 import { playerMenu } from '../provider/message'
 
+export const PlayCommands = ['Play', 'play', 'p', 'P', 'tocar']
+
 export async function play(
   args: Array<string>,
   message: Message,
@@ -16,8 +18,15 @@ export async function play(
   const channel = message.member!.voice.channel!
 
   try {
-    const { track } = await player.play(channel, args.join(' '))
 
+    let url = args.join(' ')
+    const isAPlaylist = url.includes('&list=')
+    if (isAPlaylist) {
+      const playlist = new URLSearchParams(url)
+      url = `https://www.youtube.com/playlist?list=${playlist.get('list')}`
+    }
+
+    const { track } = await player.play(channel, url)
     embedTrackMessage(message, 'purple', track)
     playerMenu(args, message, track)
   } catch (e) {

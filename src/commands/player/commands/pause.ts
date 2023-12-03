@@ -3,6 +3,8 @@ import { useQueue } from 'discord-player'
 import { logFunction } from '../../../utils/logger';
 import { isConnectedToChat } from '../../../utils/chat';
 
+export const PauseCommands = ['Pause', 'pause', 'pausar', 'Pausar']
+
 export async function pause(
   args: Array<string>,
   message: Message,

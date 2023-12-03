@@ -3,6 +3,8 @@ import { useQueue } from 'discord-player'
 import { logFunction } from '../../../utils/logger'
 import { isConnectedToChat } from '../../../utils/chat'
 
+export const SkipCommands = ['Skip', 'skip', 'pular', 'Pular', 'Next', 'next']
+
 export async function skip(args: Array<string>, message: Message) {
   logFunction('Skip', args)
 

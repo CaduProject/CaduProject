@@ -14,6 +14,7 @@
     "@discordjs/builders": "^1.6.4",
     "@discordjs/opus": "^0.9.0",
     "@discordjs/rest": "^2.0.0",
+    "axios": "^1.5.0",
     "discord-api-types": "^0.37.52",
     "discord-player": "^6.6.2",
     "discord.js": "^14.12.1",

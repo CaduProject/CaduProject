@@ -3,6 +3,8 @@ import { useQueue } from 'discord-player'
 import { logFunction } from '../../../utils/logger'
 import { isConnectedToChat } from '../../../utils/chat'
 
+export const ResumeCommands = ['Resume', 'resume', 'Despausar', 'despausar']
+
 export async function resume(args: Array<string>, message: Message) {
   logFunction('Resume', args)
 

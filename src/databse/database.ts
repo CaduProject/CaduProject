@@ -1,5 +1,4 @@
 import { connect, set } from "mongoose";
-
 import { ENV } from "../configs/Envs"
 
 export const connectDatabase = () => {

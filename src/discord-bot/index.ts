@@ -1,17 +1,17 @@
-import { MakeBotClient, MakeBotPlayer } from "../utils/makeapp";
-import { Client } from "discord.js";
 import { Player, Track } from "discord-player";
-import { validateEnv } from "../utils/validateEnvs";
-import { Commands } from "./commands";
-import { Message } from "discord.js";
+import { Client, GuildMember, Message } from "discord.js";
 import { handlePlayerInteraction } from "../commands/player/provider/handler";
 import {
   playerActions,
   playerActionsList,
 } from "../commands/player/provider/message";
-import { KarutaWatchers } from "./karuta_watcher";
 import { watch_spreadsheet } from "../commands_watcher/karuta/watchers/spreadsheets";
-import { ENV } from "../configs/envs";
+import { ENV } from "../configs/Envs";
+import { MakeBotClient, MakeBotPlayer } from "../utils/makeapp";
+import { validateEnv } from "../utils/validateEnvs";
+import { Commands } from "./commands";
+import { KarutaWatchers } from "./karuta_watcher";
+import { onJoinServer } from "../commands/user/commands/welcome";
 
 const KarutaID = "646937666251915264";
 
@@ -44,7 +44,7 @@ function createClient(): CaduClient {
 }
 
 if (!validateEnv()) {
-  var prefix = ENV.BOT_PREFIX;
+  const prefix = ENV.BOT_PREFIX;
 
   const caduClient = createClient();
   const discordClient = caduClient.client;
@@ -67,24 +67,25 @@ if (!validateEnv()) {
 
   discordClient.on("interactionCreate", (interaction) => {
     if (interaction.isButton()) {
-      if (playerActionsList.includes(interaction.customId))
-        try {
+      try {
+        if (playerActionsList.includes(interaction.customId as playerActions)) {
           handlePlayerInteraction(
             interaction.customId as playerActions,
             interaction.message
           );
-        } catch (error) {
-          console.log("[handlePlayerInteraction] => ", error);
         }
+      } catch (error) {
+        console.log("[handlePlayerInteraction] => ", error);
+      }
     }
   });
 
   discordClient.on("messageUpdate", (_, message) => {
-    message = message as Message;
+    const msg = message as Message;
 
-    if (message.author.id === KarutaID && message.embeds) {
-      for (let i = 0; i < message.embeds.length; i++) {
-        const description = message.embeds[0].data.description;
+    if (msg.author.id === KarutaID && message.embeds) {
+      for (const element of message.embeds) {
+        const description = element.data.description;
         if (
           description?.includes("your new spreadsheet can be viewed **[here]")
         ) {
@@ -92,6 +93,10 @@ if (!validateEnv()) {
         }
       }
     }
+  });
+
+  discordClient.on("guildMemberAdd", (member: GuildMember) => {
+    onJoinServer(member, discordClient);
   });
 
   process.on("uncaughtException", (reason) => {

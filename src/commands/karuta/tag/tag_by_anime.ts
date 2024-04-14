@@ -1,13 +1,13 @@
 import axios from 'axios'
 import { Message } from 'discord.js'
 
+import { ENV } from '../../../configs/Envs'
 import { MULTIPART_HEADER } from '../../../configs/constants'
-import { ENV } from '../../../configs/envs'
 import { CaduClient } from '../../../discord-bot'
-import { logFunction } from '../../../utils/logger'
-import { jsonToFormData } from '../../../utils/form-data'
-import { embedText } from '../../../utils/message'
 import { downloadKarutaCSV } from '../../../utils/fileHandler'
+import { jsonToFormData } from '../../../utils/formData'
+import { logFunction } from '../../../utils/logger'
+import { embedText } from '../../../utils/message'
 import { capitalizeStr } from '../../../utils/ui/display'
 
 export async function tag_by_anime(
@@ -54,6 +54,6 @@ export async function tag_by_anime(
       })
     }
   } catch (e) {
-    message.channel.send(`Brow, acho que acabei me perdendo você viu cadu por ai?`);
+    message.channel.send(`Brow, acho que acabei me perdendo você viu o cadu por ai?`);
   }
 }

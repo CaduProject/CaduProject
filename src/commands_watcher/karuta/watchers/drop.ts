@@ -1,10 +1,9 @@
-import { Message, TextChannel } from 'discord.js'
-import { CaduClient } from '../../../discord-bot'
-import { ENV } from '../../../configs/Envs'
-import axios from 'axios'
-import { Colors } from '../../../utils/colors'
-import { APIEmbedField } from 'discord-api-types/v10'
 import { EmbedBuilder } from '@discordjs/builders'
+import axios from 'axios'
+import { APIEmbedField } from 'discord-api-types/v10'
+import { Message, TextChannel } from 'discord.js'
+import { ENV } from '../../../configs/Envs'
+import { Colors } from '../../../utils/colors'
 
 export const PlayCommands = ['Play', 'play', 'p', 'P', 'tocar']
 

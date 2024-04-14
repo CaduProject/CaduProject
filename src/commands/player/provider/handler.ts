@@ -1,9 +1,9 @@
-import { BaseInteraction, CacheType, Message } from 'discord.js'
-import { playerActions } from './message'
-import { pause } from '../commands/pause'
-import { previous } from '../commands/previous'
-import { resume } from '../commands/resume'
-import { skip } from '../commands/skip'
+import { Message } from "discord.js";
+import { pause } from "../commands/pause";
+import { previous } from "../commands/previous";
+import { resume } from "../commands/resume";
+import { skip } from "../commands/skip";
+import { playerActions } from "./message";
 
 const playerAction = {
   pause: {
@@ -18,11 +18,11 @@ const playerAction = {
   skip: {
     callback: (message: Message) => skip([], message),
   },
-}
+};
 
 export function handlePlayerInteraction(
   interactionId: playerActions,
   message: Message
 ) {
-  playerAction[interactionId].callback(message)
+  playerAction[interactionId].callback(message);
 }

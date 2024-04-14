@@ -10,7 +10,7 @@ function truncateText(text: string) {
   return text.length > 50 ? truncate + "..." : truncate;
 }
 
-function addField(
+export function addField(
   name: string,
   value: string,
   inline: boolean = false

@@ -1,10 +1,10 @@
 function valitadeEnv(key: string, errMsg: string = "") {
-  const value = process.env[key]
+  const value = process.env[key];
   return {
     key: key,
     value: value,
-    errMsg: errMsg ? errMsg : `Missing Env ${key}`
-  }
+    errMsg: errMsg || `Missing Env ${key}`,
+  };
 }
 
 function validator(env: any) {
@@ -12,30 +12,30 @@ function validator(env: any) {
     console.warn(env.errMsg);
     return true;
   }
-  return false
-} 
+  return false;
+}
 
 function validateAllEnvs(listOfEnvs: Array<Object>) {
-  let err_count = 0
+  let err_count = 0;
   listOfEnvs.forEach((value) => {
     if (validator(value)) {
-      err_count++
+      err_count++;
     }
-  })
-  return err_count
+  });
+  return err_count;
 }
 
 export function validateEnv() {
   const listOfEnvs = [
-    valitadeEnv('BOT_TOKEN'),
-    valitadeEnv('DB_USER'),
-    valitadeEnv('DB_PASSWORD'),
-    valitadeEnv('BOT_PREFIX'),
-    valitadeEnv('CADU_API_URL'),
-  ]
+    valitadeEnv("BOT_TOKEN"),
+    valitadeEnv("DB_USER"),
+    valitadeEnv("DB_PASSWORD"),
+    valitadeEnv("BOT_PREFIX"),
+    valitadeEnv("CADU_API_URL"),
+  ];
 
-  const err_count = validateAllEnvs(listOfEnvs)
-  if (err_count > 0) return true
+  const err_count = validateAllEnvs(listOfEnvs);
+  if (err_count > 0) return true;
 
-  return false
-};
+  return false;
+}

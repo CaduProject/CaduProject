@@ -5,11 +5,13 @@ import { basicCommandsList } from "../commands/basic/basic";
 import { playerCommandsList } from "../commands/player/player";
 import { tagsCommandsList } from "../commands/karuta/karuta";
 import { findCommand, Command } from "../utils/commands";
+import { userCommandsList } from "../commands/user/user";
 
 const commandsList: Array<Command[]> = [
   ...basicCommandsList,
   ...playerCommandsList,
   ...tagsCommandsList,
+  ...userCommandsList,
 ];
 
 export function Commands(

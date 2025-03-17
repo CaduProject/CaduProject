@@ -1,4 +1,4 @@
-import { RGBTuple } from "discord.js";
+import { RGBTuple } from "@discordjs/builders";
 
 export type colorPalette =
   | "red"

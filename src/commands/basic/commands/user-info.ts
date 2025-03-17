@@ -1,5 +1,6 @@
-import { Message, EmbedBuilder } from "discord.js";
+import { Message } from "discord.js";
 import { capitalizeStr } from "../../../utils/ui/display";
+import { EmbedBuilder } from "@discordjs/builders";
 
 export function userInfo(args: Array<string>, message: Message) {
   const user = message.mentions.users.first() || message.author;

@@ -1,7 +1,8 @@
-import { ButtonStyle, Message } from "discord.js";
 import { logFunction } from "../../../utils/logger";
 import { isConnectedToChat } from "../../../utils/chat";
 import { Track } from "discord-player";
+import { ButtonStyle } from "discord-api-types/v10";
+import { Message } from "discord.js";
 
 const { ActionRowBuilder, ButtonBuilder } = require("discord.js");
 

@@ -1,6 +1,6 @@
-import { Command, addCommand } from "../../utils/commands";
-import { karutaTagsCommands } from "./tag";
+import { addCommand, Command } from "../../utils/commands";
+import { tag_by_anime, TabByAnimeCommands } from "./tags/tag_by_anime";
 
-export const karutaCommandList: Array<Command[]> = [
-    ...karutaTagsCommands
-]
+export const tagsCommandsList: Array<Command[]> = [
+  addCommand(TabByAnimeCommands, tag_by_anime),
+];

@@ -1,14 +1,18 @@
-import { Command, addCommand } from "../../utils/commands";
-import { pause } from "../player/commands/pause";
-import { play } from "../player/commands/play";
-import { resume } from "../player/commands/resume";
-import { skip } from "../player/commands/skip";
-import { stop } from "../player/commands/stop";
+import { Command, addCommand } from '../../utils/commands'
+import { PauseCommands, pause } from '../player/commands/pause'
+import { PlayCommands, play } from '../player/commands/play'
+import { ResumeCommands, resume } from '../player/commands/resume'
+import { SkipCommands, skip } from '../player/commands/skip'
+import { StopCommands, stop } from '../player/commands/stop'
+import { PreviousCommands, previous } from './commands/previous'
+import { PlayerCommands, playerMenu } from './provider/message'
 
 export const playerCommandsList: Array<Command[]> = [
-    addCommand(["play", "p"], play),
-    addCommand(["skip"], skip),
-    addCommand(["pause"], pause),
-    addCommand(["resume"], resume),
-    addCommand(["stop"], stop)
+  addCommand(PlayCommands, play),
+  addCommand(SkipCommands, skip),
+  addCommand(PauseCommands, pause),
+  addCommand(ResumeCommands, resume),
+  addCommand(StopCommands, stop),
+  addCommand(PreviousCommands, previous),
+  addCommand(PlayerCommands, playerMenu),
 ]
